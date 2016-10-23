@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+       .div1{
+           background: lightgray;
+           width: 400px;
+           height: 625px;
+           position: relative;
+           margin-top: 15px;
+           margin-left: 200px;
+       }
+       .div3{
+         display: inline-block;
+         background: black;
+         color: white;;
+         width: 100px;
+         border: 1px solid white;
+       }
+       .div2{
+           display: inline-block;
+           background: white;
+           color: red;
+           width: 100px;
+           border: 1px solid white;
+       }
+        .form1{
+            padding: 10px;
+        }
+
+        #div span{
+            margin-left: 5px;
+        }
+        .div4{
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="div1">
+       <form id="form" class="form1">
+           <ul>
+               日历表
+           </ul>
+           <ul>
+               <td><div class="div3"><h2>1</h2><span>Jan</span></div></td>
+               <td><div class="div3" ><h2>2</h2><span>Feb</span></div></td>
+               <td><div class="div3"><h2>3</h2><span>Mar</span></div></td>
+           </ul>
+           <ul>
+               <td><div class="div3"><h2>4</h2><span>Ape</span></div></td>
+               <td><div class="div3"><h2>5</h2><span>May</span></div></td>
+               <td><div class="div3"><h2>6</h2><span>Jun</span></div></td>
+           </ul>
+           <ul>
+               <td><div class="div3"><h2>7</h2><span>Jul</span></div></td>
+               <td><div class="div3"><h2>8</h2><span>Aug</span></div></td>
+               <td><div class="div3"><h2>9</h2><span>Sep</span></div></td>
+           </ul>
+           <ul>
+               <td><div class="div3"><h2>10</h2><span>Oct</span></div></td>
+               <td><div class="div3"><h2>11</h2><span>Nov</span></div></td>
+               <td><div class="div3"><h2>12</h2><span>Dec</span></div></td>
+           </ul>
+           <ul>
+               <h2 id="tit"></h2><br>
+               <span id="txt"></span>
+           </ul>
+
+       </form>
+
+   </div>
+<script type="text/javascript">
+    window.onload=function(){
+        var arr=["一月一回同拜表，莫辞侵早过中桥。",
+            "二月六夜春水生，门前小滩浑欲平",
+            "三月灞陵春已老，故人相逢耐醉倒。",
+            "人间四月芳菲尽，山寺桃花始盛开。",
+            "五月天山雪，无花只有寒。",
+            "火山六月应更热，赤亭道口行人绝。",
+            "七月六日苦炎热，对食暂餐还不能。",
+            "八月湖太平，涵虚混太清。",
+            "可怜九月初三夜，露似珍珠月似弓。",
+            "十月江南天气好，可怜冬景似春华。",
+            "十一月中长至夜，三千里外远行人。",
+            "日脚淡光红洒洒，薄霜不销桂枝下。<br>依稀和气排冬严，已就长日辞长夜。"];//寒楚十二月，苍鹰八九毛。
+        var formElement=document.getElementById("form");
+        var month=formElement.getElementsByTagName("div");
+        var tieElement=document.getElementById("tit");
+        var txtElement=document.getElementById("txt");
+        for(var i=0;i<month.length;i++)
+        {
+            month[i].index=i;
+            month[i].onmouseover=function()
+            {
+                for(var y=0;y<month.length;y++)
+                {
+                    month[y].className="div3";
+                }
+                this.className="div2";
+                tieElement.innerHTML="<h2>"+(this.index+1)+"月活动"+"</h2>";
+                txtElement.innerHTML="<span>"+arr[this.index]+"</span>";
+            }
+        }
+    }
+</script>
+</body>
+</html>
